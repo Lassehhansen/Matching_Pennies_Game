@@ -1,4 +1,11 @@
-Matching_Pennies_Game = function(n_agents, n_trials, function_give, rate, noise, function_take, msize, bias, power){
+Matching_Pennies_Game = function(n_agents, n_trials, function_give, rate, noise, msize, bias, power){
+  
+  # Sourcing functions
+  
+  source("RandomAgentNoise_Function.R")
+  source("WSLSAgent_Function.R")
+  source("MemAgent_Function.R")
+  
   
   # Making a counter 
   
@@ -32,22 +39,31 @@ Matching_Pennies_Game = function(n_agents, n_trials, function_give, rate, noise,
     for (t in 1:n_trials) {
       
       # Get the agent 1 choice
-      agent_give_choice <- function_give(rate, noise)
-      
+      if (function_give == "RandomAgentNoise_Function"){
+      agent_give_choice <- RandomAgentNoise_Function(bias, noise)
+      }
+      else if (function_give == "WSLSAgent_Function" & t == 1){
+      agent_give_choice = rbinom(1, 1, bias)
+      }
+      else if (function_give == "WSLSAgent_Function" & t > 1){
+      agent_give_choice <- WSLSAgent_Function(agent_give_choice, agent_give_payoff)
+      }
+        
       # If this is the first round or the short-term memory agent has not yet accumulated enough memory, choose randomly
       if (t <= msize) {
         agent_take_choice <- rbinom(1, 1, bias)
       }
       else {
         # Get the agent 2 choice based on its memory
-        agent_take_choice <- function_take(agent_give_choices, msize, bias, power)
+        agent_take_choice <- MemAgent_Function(agent_give_choices, msize, bias, power)
       }
       
       # Determine the payoff for each agent
       if (agent_give_choice == agent_take_choice) {
         agent_give_payoff <- 1
         agent_take_payoff <- -1
-      } else {
+      } 
+      else {
         agent_give_payoff <- -1
         agent_take_payoff <- 1
       }
