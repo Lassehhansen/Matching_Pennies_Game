@@ -1,8 +1,12 @@
-WSLSAgent_Function <- function(prevChoice, Feedback) {
-  if (Feedback == 1) {
+WSLSAgent_Function <- function(prevChoice, agent_give_payoff) {
+  
+  if (agent_give_payoff == 1) {
     choice <- prevChoice
   } 
-  else if (Feedback == 0) {
+  
+  else if (agent_give_payoff == -1) {
     choice <- 1 - prevChoice
   }
-  return(choice)} 
+  return(choice)
+  
+  } 
