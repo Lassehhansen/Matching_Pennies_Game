@@ -1,4 +1,4 @@
-Matching_Pennies_Game = function(n_agents, n_trials, function_give, rate, noise, msize, bias, power){
+Matching_Pennies_Game = function(n_agents, n_trials, function_give, noise, msize, bias, power){
   
   # Sourcing functions
   
