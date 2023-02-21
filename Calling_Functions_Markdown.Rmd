@@ -12,14 +12,6 @@ output: html_document
 library(tidyverse)
 ```
 
-## Loading agent functions
-
-```{r}
-source("RandomAgentNoise_Function.R")
-source("MemAgent_Function.R")
-source("WSLSAgent_Function.R")
-```
-
 ## Loading matching pennies game function
 
 ```{r}
@@ -42,9 +34,9 @@ power = 0
 n_trials = 120
 n_agents = 100
 
-ST_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, n_trials, function_give = RandomAgentNoise_Function, rate, noise, function_take = MemAgent_Function, msize, bias, power)
+ST_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, n_trials, function_give = "RandomAgentNoise_Function", rate, noise, msize, bias, power)
 
-ST_VS_WSLS = Matching_Pennies_Game(n_agents, n_trials, function_give = WSLSAgent_Function, rate, noise, function_take = MemAgent_Function, msize, bias, power)
+ST_VS_WSLS = Matching_Pennies_Game(n_agents, n_trials, function_give = "WSLSAgent_Function", rate, noise, msize, bias, power)
 
 ```
 
@@ -62,8 +54,7 @@ bias <- 0.5
 n_trials = 120
 n_agents = 100
 
-PL_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, n_trials, function_give = RandomAgentNoise_Function, rate, noise, function_take = MemAgent_Function, msize, bias, power)
+PL_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, n_trials, function_give = "RandomAgentNoise_Function", rate, noise, msize, bias, power)
 
-PL_VS_WSLS = Matching_Pennies_Game(n_agents, n_trials, function_give = WSLSAgent_Function, rate, noise, function_take = MemAgent_Function, msize, bias, power)
-
+PL_VS_WSLS = Matching_Pennies_Game(n_agents, n_trials, function_give = "WSLSAgent_Function", rate, noise, msize, bias, power)
 ```
