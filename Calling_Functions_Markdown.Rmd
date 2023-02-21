@@ -34,9 +34,21 @@ power = 0
 n_trials = 120
 n_agents = 100
 
-ST_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, n_trials, function_give = "RandomAgentNoise_Function", rate, noise, msize, bias, power)
+ST_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, 
+                                        n_trials, 
+                                        function_give = "RandomAgentNoise_Function", 
+                                        noise, 
+                                        msize, 
+                                        bias, 
+                                        power)
 
-ST_VS_WSLS = Matching_Pennies_Game(n_agents, n_trials, function_give = "WSLSAgent_Function", rate, noise, msize, bias, power)
+ST_VS_WSLS = Matching_Pennies_Game(n_agents, 
+                                   n_trials, 
+                                   function_give = "WSLSAgent_Function", 
+                                   noise, 
+                                   msize, 
+                                   bias, 
+                                   power)
 
 ```
 
@@ -54,7 +66,19 @@ bias <- 0.5
 n_trials = 120
 n_agents = 100
 
-PL_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, n_trials, function_give = "RandomAgentNoise_Function", rate, noise, msize, bias, power)
+PL_VS_RANDOM_DF = Matching_Pennies_Game(n_agents, 
+                                        n_trials, 
+                                        function_give = "RandomAgentNoise_Function", 
+                                        noise, 
+                                        msize, 
+                                        bias, 
+                                        power)
 
-PL_VS_WSLS = Matching_Pennies_Game(n_agents, n_trials, function_give = "WSLSAgent_Function", rate, noise, msize, bias, power)
+PL_VS_WSLS = Matching_Pennies_Game(n_agents, 
+                                   n_trials, 
+                                   function_give = "WSLSAgent_Function", 
+                                   noise, 
+                                   msize, 
+                                   bias, 
+                                   power)
 ```
